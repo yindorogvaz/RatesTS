@@ -15,20 +15,20 @@ const exchangeSlice = createSlice({
     initialState: state,
     reducers: {},
     extraReducers: (builder) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         builder.addCase(fetchExchangeSlice.pending, (state) => {
             state.status = 'loading...'
             state.error = ''
             state.loading = true
         }),
-            builder.addCase(fetchExchangeSlice.fulfilled, (state, action) => {
+            builder.addCase(fetchExchangeSlice.fulfilled, ( state , {payload}) => {
                 state.status = 'resolved'
-                state.rates = action.payload.rates;
+                state.rates = payload.conversion_rates
                 state.loading = false
             }),
-            builder.addCase(fetchExchangeSlice.rejected, (state, action) => {
+            builder.addCase(fetchExchangeSlice.rejected, (state, {payload}) => {
                 state.status = 'rejected'
-                state.error = <string>action.payload
+                state.error = <string>payload
             })
     }
 })

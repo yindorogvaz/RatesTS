@@ -3,12 +3,12 @@ import {Box, FormControl, MenuItem, Select, Typography} from '@mui/material'
 import {useSelector} from 'react-redux'
 import {RootState} from 'store'
 import {format} from 'utils/format'
-import {styles} from "./styles";
+import {styles} from '../styles'
 
 
-const DropDown: React.FC = () => {
+export const DropDown: React.FC = () => {
 
-    const {rates, loading} = useSelector((state: RootState) => state.exchangeRate);
+    const {rates, loading} = useSelector((state: RootState) => state.exchangeRate)
 
     const [storageOne, setStorageOne] = useState<string>('USD')
     const [storageTwo, setStorageTwo] = useState<string>('EUR')
@@ -38,13 +38,13 @@ const DropDown: React.FC = () => {
 
     const localChange = (event: any) => {
             if (event.target.name === 'USD') {
-                localStorage.setItem('storage1', JSON.stringify({'key1': event.target.value}));
+                localStorage.setItem('storage1', JSON.stringify({'key1': event.target.value}))
                 setStorageOne(event.target.value)
             } else if (event.target.name === 'EUR') {
-                localStorage.setItem('storage2', JSON.stringify({'key2': event.target.value}));
+                localStorage.setItem('storage2', JSON.stringify({'key2': event.target.value}))
                 setStorageTwo(event.target.value)
             } else if (event.target.name === 'PLN') {
-                localStorage.setItem('storage3', JSON.stringify({'key3': event.target.value}));
+                localStorage.setItem('storage3', JSON.stringify({'key3': event.target.value}))
                 setStorageThree(event.target.value)
             }
     }
@@ -103,7 +103,7 @@ const DropDown: React.FC = () => {
             </Box>
 
             <Box sx={styles.formBox}>
-                <FormControl variant="standard" fullWidth sx={styles.form}>
+                <FormControl variant='standard' fullWidth sx={styles.form}>
                     <Box>
                         <Select
                             sx={styles.select}
@@ -127,5 +127,3 @@ const DropDown: React.FC = () => {
         </Box>
     )
 }
-
-export default DropDown

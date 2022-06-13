@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import {
     TableBody,
     TableCell,
@@ -10,14 +10,13 @@ import {
     Box} from '@mui/material'
 import {useSelector} from 'react-redux'
 import {RootState} from 'store'
-import {format} from 'utils/format'
 import {Rates} from '../../store/modules/rates/types'
-import {styles} from "./styles";
+import {styles} from './styles'
+import {format} from 'utils/format'
 
 
 
-
-const TableRates: React.FC = () => {
+export const TableRates: React.FC = () => {
 
     const {rates, loading} = useSelector((state: RootState) => state.exchangeRate)
     const [searchRate, SetSearchRate] = useState<string>('')
@@ -77,4 +76,3 @@ const TableRates: React.FC = () => {
     )
 }
 
-export default TableRates

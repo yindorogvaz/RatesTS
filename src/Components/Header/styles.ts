@@ -11,7 +11,6 @@ export const styles: any = {
     header: {
         flexGrow: 1,
     },
-
     dropDownBox: {
         display: 'flex',
         justifyContent: 'center',
@@ -35,5 +34,4 @@ export const styles: any = {
             color: 'yellow'
         }
     },
-
 }

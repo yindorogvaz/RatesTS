@@ -7,13 +7,13 @@ import {
     Select,
     TextField,
 } from '@mui/material'
-import { useSelector } from 'react-redux'
+import {useSelector} from 'react-redux'
 import {RootState} from 'store'
 import {format} from 'utils/format'
-import {styles} from "./styles";
+import {styles} from './styles'
 
 
-const ExchangeRate: React.FC = () => {
+export const ExchangeRate: React.FC = () => {
 
     const {rates, loading} = useSelector((state: RootState) => state.exchangeRate)
     const [currencyFrom, setCurrencyFrom] = useState<string>('UAH')
@@ -43,8 +43,8 @@ const ExchangeRate: React.FC = () => {
 
     useEffect(() => {
         if(rates !== null) {
-            setAmountFrom(rates.UAH)
-            setAmountTo(rates.EUR)
+            setAmountFrom(format(rates.UAH))
+            setAmountTo(format(rates.EUR))
         }
     }, [rates])
 
@@ -121,5 +121,3 @@ const ExchangeRate: React.FC = () => {
         </Box>
     )
 }
-
-export default ExchangeRate

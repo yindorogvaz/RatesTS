@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {AppBar, Box, Toolbar, Typography,} from '@mui/material'
-import DropDown from './dropDown'
+import {AppBar, Box, Toolbar, Typography} from '@mui/material'
+import {DropDown} from './DropDown'
 import {styles} from './styles'
 
 
@@ -18,7 +18,7 @@ const links = {
 }
 
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
 
     return (
         <Box sx={styles.header}>
@@ -40,5 +40,4 @@ const Header: React.FC = () => {
     )
 }
 
-export default Header
 
