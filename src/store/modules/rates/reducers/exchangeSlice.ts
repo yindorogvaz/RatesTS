@@ -16,7 +16,7 @@ const exchangeSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        builder.addCase(fetchExchangeSlice.pending, (state) => {
+        builder.addCase(fetchExchangeSlice.pending, ( state ) => {
             state.status = 'loading...'
             state.error = ''
             state.loading = true

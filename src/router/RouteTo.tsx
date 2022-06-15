@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link, Route, Routes} from 'react-router-dom'
-import {ExchangeRate} from '../Components/Exchange'
-import {TableRates} from '../Pages/TablePage'
-import {NotFoundPage} from '../Pages/NotFoundPage'
+import {ExchangeRate} from '../components'
+import {TableRates, NotFoundPage} from '../pages'
 
-export const Location: React.FC = () => {
+
+export const RouteTo: React.FC = () => {
 
     const messageError = <>404: PAGE NOT FOUND. Go <Link to='/'>home</Link></>
 

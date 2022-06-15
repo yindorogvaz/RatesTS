@@ -1,19 +1,10 @@
-import React, {useEffect, useMemo, useState} from 'react'
-import {
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Table,
-    TextField,
-    Box} from '@mui/material'
+import React, {useState} from 'react'
+import {Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField} from '@mui/material'
 import {useSelector} from 'react-redux'
 import {RootState} from 'store'
 import {Rates} from '../../store/modules/rates/types'
 import {styles} from './styles'
 import {format} from 'utils/format'
-
 
 
 export const TableRates: React.FC = () => {
@@ -29,14 +20,13 @@ export const TableRates: React.FC = () => {
         SetSearchRate(e.currentTarget.value)
     }
 
-    const filteredRates = useMemo(() => Object.keys(rates as Rates).filter((rate) => {
-            return rate.toLowerCase().includes(searchRate.toLowerCase())
-        }), [searchRate])
-
-
     if (loading || rates === null) {
         return <div>loading...</div>
     }
+
+    const filteredRates = Object.keys(rates as Rates).filter((rate) => {
+        return rate.toLowerCase().includes(searchRate.toLowerCase())
+    })
 
     return (
         <Box>
